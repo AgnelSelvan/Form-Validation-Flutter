@@ -59,7 +59,7 @@ class _RegisterScreenState extends State<RegisterScreen> with InputValidator {
             education: registerNotifier.education!,
             fullName: fullNameController.text,
           );
-          Navigator.push(
+          Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                   builder: ((context) => const AddressInfoScreen())));
@@ -84,7 +84,6 @@ class _RegisterScreenState extends State<RegisterScreen> with InputValidator {
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Form(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
                 key: formGlobalKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

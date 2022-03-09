@@ -53,6 +53,12 @@ class RegisterNotifier extends ChangeNotifier {
     } else if (province == null) {
       return Left(UnknownFailure("Please Select A Province"));
     }
+    _addressInfo = AddressInfo(
+      addressNo: addressNo,
+      address: address,
+      addressType: _addressType!,
+      province: _province!,
+    );
     return const Right(true);
   }
 }

@@ -58,7 +58,6 @@ class _AddressInfoScreenState extends State<AddressInfoScreen>
               child: Padding(
                 padding: const EdgeInsets.all(20),
                 child: Form(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   key: formGlobalKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,6 +102,7 @@ class _AddressInfoScreenState extends State<AddressInfoScreen>
                         leadingIcon: Icons.apartment_rounded,
                         inputType: InputType.address,
                         validator: validateAddress,
+                        maxLines: 4,
                         textInputType: TextInputType.streetAddress,
                       ),
                       const SizedBox(
@@ -155,7 +155,7 @@ class _AddressInfoScreenState extends State<AddressInfoScreen>
                                 (l) => Utiliy.showErrorSnackbar(context,
                                     message: l.toString()), (r) {
                               if (r) {
-                                Navigator.push(
+                                Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => const HomeScreen(),

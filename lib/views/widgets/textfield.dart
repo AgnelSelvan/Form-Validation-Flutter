@@ -13,6 +13,7 @@ class RegisterTextField extends StatefulWidget {
     this.controller,
     this.validator,
     this.textInputType,
+    this.maxLines,
     this.enabled,
     required this.inputType,
     required this.leadingIcon,
@@ -26,6 +27,7 @@ class RegisterTextField extends StatefulWidget {
   final ValidatorCallback? validator;
   final TextInputType? textInputType;
   final bool? enabled;
+  final int? maxLines;
   final InputType inputType;
 
   @override
@@ -47,13 +49,20 @@ class _RegisterTextFieldState extends State<RegisterTextField>
                       : null;
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+
     if (widget.enabled == null) {
       widget.controller?.addListener(() {
         setState(() {});
       });
     }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: widget.maxLines,
       enabled: widget.enabled,
       validator: widget.validator,
       controller: widget.controller,

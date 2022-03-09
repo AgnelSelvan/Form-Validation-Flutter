@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:registration/views/widgets/app_header.dart';
 
 class RegisterHeader extends StatelessWidget {
   const RegisterHeader({
@@ -11,13 +12,7 @@ class RegisterHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(
-          height: 30,
-        ),
-        Text(
-          "Register",
-          style: Theme.of(context).textTheme.headline3,
-        ),
+        const AppHeader(text: "Register"),
         const SizedBox(
           height: 10,
         ),
