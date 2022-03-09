@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:registration/core/utils/enum/education.dart';
@@ -27,20 +30,51 @@ class _RegisterScreenState extends State<RegisterScreen> with InputValidator {
   final dobController = TextEditingController();
   final formGlobalKey = GlobalKey<FormState>();
   late RegisterNotifier registerNotifier;
+  DateTime? selectedDateTime;
 
-  void showDate() async {
-    final date = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1980),
-      lastDate: DateTime.now(),
-    );
-    if (date == null) {
+  updateDOBTF() {
+    if (selectedDateTime == null) {
       Utiliy.showErrorSnackbar(context,
           message: "Please select your Date of Birth");
     } else {
       dobController.text =
-          "${date.day.toString().padLeft(2, '0')}-${date.month.toString().padLeft(2, '0')}-${date.year.toString().padLeft(4, '0')}";
+          "${selectedDateTime?.day.toString().padLeft(2, '0')}-${selectedDateTime?.month.toString().padLeft(2, '0')}-${selectedDateTime?.year.toString().padLeft(4, '0')}";
+    }
+    setState(() {});
+  }
+
+  void showDate() async {
+    if (Platform.isIOS) {
+      showCupertinoModalPopup(
+          context: context,
+          builder: (_) => Container(
+                height: 190,
+                color: const Color.fromARGB(255, 255, 255, 255),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 180,
+                      child: CupertinoDatePicker(
+                          mode: CupertinoDatePickerMode.date,
+                          initialDateTime: DateTime.now(),
+                          onDateTimeChanged: (val) {
+                            selectedDateTime = val;
+                            updateDOBTF();
+                            setState(() {});
+                          }),
+                    ),
+                  ],
+                ),
+              ));
+    } else {
+      final date = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(1980),
+        lastDate: DateTime.now(),
+      );
+      selectedDateTime = date;
+      updateDOBTF();
     }
   }
 

@@ -1,16 +1,31 @@
-# registration
+# Registration
 
-A new Flutter project.
+A new Flutter Form Validation Project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Download the project 
 
-A few resources to get you started if this is your first Flutter project:
+Run this both command in your project folder terminal
+```dart
+   flutter pub get 
+```
+```dart
+   flutter pub run
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Outputs
+Android
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="outputs/android/1.jpeg">
+<img src="outputs/android/2.jpeg">
+<img src="outputs/android/3.jpeg">
+<img src="outputs/android/4.jpeg">
+<img src="outputs/android/5.jpeg">
+
+iOS
+
+<img src="outputs/ios/1.png">
+<img src="outputs/ios/2.png">
+<img src="outputs/ios/3.png">
+<img src="outputs/ios/4.png">
