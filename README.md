@@ -17,11 +17,11 @@ Run this both command in your project folder terminal
 ## Outputs
 Android
 
-<img width=100 src="outputs/android/1.jpeg">
-<img width=100 src="outputs/android/2.jpeg">
-<img width=100 src="outputs/android/3.jpeg">
-<img width=100 src="outputs/android/4.jpeg">
-<img width=100 src="outputs/android/5.jpeg">
+<img align="left" width=200 src="outputs/android/1.jpeg">
+<p align="center"><img width=200 src="outputs/android/2.jpeg"></p>
+<img align="right" width=200 src="outputs/android/3.jpeg">
+<img align="left" width=200 src="outputs/android/4.jpeg">
+<p align="center"><img width=200 src="outputs/android/5.jpeg"></p>
 
 iOS
 
