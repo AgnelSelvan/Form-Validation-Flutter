@@ -74,8 +74,13 @@ class _RegisterScreenState extends State<RegisterScreen> with InputValidator {
   }
 
   @override
+  void initState() {
+    registerNotifier = Provider.of<RegisterNotifier>(context, listen: false);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    registerNotifier = Provider.of<RegisterNotifier>(context);
     return Scaffold(
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -84,116 +89,127 @@ class _RegisterScreenState extends State<RegisterScreen> with InputValidator {
             physics: const BouncingScrollPhysics(),
             child: Padding(
               padding: const EdgeInsets.all(20),
-              child: Form(
-                key: formGlobalKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const RegisterHeader(
-                      header: "Personal Info",
-                    ),
-                    RegisterTextField(
-                      labelText: "Enter Aadhar ID",
-                      hintText: "4232 **** **** **23",
-                      leadingIcon: Icons.account_balance_wallet_rounded,
-                      controller: aadharNumberController,
-                      textInputType: TextInputType.number,
-                      validator: validateAadharID,
-                      inputType: InputType.aadhar,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    RegisterTextField(
-                      labelText: "Enter Fullname",
-                      hintText: "Darshan Rathod",
-                      leadingIcon: Icons.account_circle_rounded,
-                      controller: fullNameController,
-                      textInputType: TextInputType.name,
-                      validator: validateFullName,
-                      inputType: InputType.fullName,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    RegisterTextField(
-                      labelText: "Back Account",
-                      hintText: "",
-                      controller: bankAccController,
-                      leadingIcon: Icons.account_balance,
-                      inputType: InputType.bankAccount,
-                      validator: validateBankAccNumber,
-                      textInputType: TextInputType.number,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Consumer<RegisterNotifier>(builder: (_, a, child) {
-                      return RegisterDropdown<Education?>(
-                          hintText: "Select your Education",
-                          value: a.education,
-                          items: Education.values
-                              .map((e) => DropdownMenuItem<Education>(
-                                  value: e, child: Text(e.name.capitalize())))
-                              .toList(),
-                          onChanged: (val) => a.education = val);
-                    }),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        debugPrint("DOB");
-                        showDate();
-                      },
-                      child: RegisterTextField(
-                        labelText: "DOB",
-                        hintText: "",
-                        enabled: false,
-                        controller: dobController,
-                        leadingIcon: Icons.calendar_today,
-                        inputType: InputType.dob,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    RegisterButton(
-                      onPressed: onRegisterTap,
-                      text: "Proceed",
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Center(
-                      child: Text(
-                        "OR",
-                        style: Theme.of(context).textTheme.subtitle2,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        SocialLoginButton(
-                          iconData: Icons.facebook,
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        SocialLoginButton(iconData: Icons.web),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              child: personalForm(context),
             ),
           ),
         ),
       ),
     );
+  }
+
+  Form personalForm(BuildContext context) {
+    return Form(
+      key: formGlobalKey,
+      child: personalUserInputFields(context),
+    );
+  }
+
+  Column personalUserInputFields(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const RegisterHeader(
+          header: "Personal Info",
+        ),
+        RegisterTextField(
+          labelText: "Enter Aadhar ID",
+          hintText: "4232 **** **** **23",
+          leadingIcon: Icons.account_balance_wallet_rounded,
+          controller: aadharNumberController,
+          textInputType: TextInputType.number,
+          validator: validateAadharID,
+          inputType: InputType.aadhar,
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        RegisterTextField(
+          labelText: "Enter Fullname",
+          hintText: "Raj ",
+          leadingIcon: Icons.account_circle_rounded,
+          controller: fullNameController,
+          textInputType: TextInputType.name,
+          validator: validateFullName,
+          inputType: InputType.fullName,
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        RegisterTextField(
+          labelText: "Back Account",
+          hintText: "",
+          controller: bankAccController,
+          leadingIcon: Icons.account_balance,
+          inputType: InputType.bankAccount,
+          validator: validateBankAccNumber,
+          textInputType: TextInputType.number,
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        educationDropdown(),
+        const SizedBox(
+          height: 20,
+        ),
+        InkWell(
+          onTap: () {
+            showDate();
+          },
+          child: RegisterTextField(
+            labelText: "DOB",
+            hintText: "",
+            enabled: false,
+            controller: dobController,
+            leadingIcon: Icons.calendar_today,
+            inputType: InputType.dob,
+          ),
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        RegisterButton(
+          onPressed: onRegisterTap,
+          text: "Proceed",
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Center(
+          child: Text(
+            "OR",
+            style: Theme.of(context).textTheme.subtitle2,
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            SocialLoginButton(
+              iconData: Icons.facebook,
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            SocialLoginButton(iconData: Icons.web),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Consumer<RegisterNotifier> educationDropdown() {
+    return Consumer<RegisterNotifier>(builder: (_, a, child) {
+      return RegisterDropdown<Education?>(
+          hintText: "Select your Education",
+          value: a.education,
+          items: Education.values
+              .map((e) => DropdownMenuItem<Education>(
+                  value: e, child: Text(e.name.capitalize())))
+              .toList(),
+          onChanged: (val) => a.education = val);
+    });
   }
 }
 

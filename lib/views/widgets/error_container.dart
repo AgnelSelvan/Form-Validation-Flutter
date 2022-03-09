@@ -12,21 +12,27 @@ class BlocErrorContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            errorMessage,
-            style: const TextStyle(color: Colors.red),
-          ),
-          IconButton(
-              onPressed: onPressed,
-              icon: Icon(
-                Icons.refresh,
-                color: Colors.blue[400]!,
-              ))
-        ],
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              errorMessage,
+              style: const TextStyle(
+                color: Colors.red,
+                fontSize: 14,
+              ),
+            ),
+            IconButton(
+                onPressed: onPressed,
+                icon: Icon(
+                  Icons.refresh,
+                  color: Colors.blue[400]!,
+                ))
+          ],
+        ),
       ),
     );
   }

@@ -14,4 +14,8 @@ class Utiliy {
   static showErrorSnackbar(BuildContext context, {required String message}) {
     showSnackbar(context, message: message, color: Colors.red[400]);
   }
+
+  static showSuccessSnackbar(BuildContext context, {required String message}) {
+    showSnackbar(context, message: message, color: Colors.green[400]);
+  }
 }
