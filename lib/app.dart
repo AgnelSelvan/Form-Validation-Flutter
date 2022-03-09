@@ -8,7 +8,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Form Validation',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: AppColors.primaryColor,
         primarySwatch: AppColors.primarySwatch,
@@ -21,6 +22,15 @@ class MyApp extends StatelessWidget {
           ),
           labelMedium:
               TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[500]!),
+          bodyText1: TextStyle(
+            color: Colors.grey[400]!,
+            fontSize: 16,
+          ),
+          bodyText2: TextStyle(
+            fontWeight: FontWeight.w900,
+            color: Colors.grey[700]!,
+            fontSize: 20,
+          ),
           subtitle2: TextStyle(
             color: Colors.grey[500],
             letterSpacing: 0.5,

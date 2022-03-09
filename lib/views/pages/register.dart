@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:registration/core/utils/enum/education.dart';
 import 'package:registration/core/utils/enum/input.dart';
 import 'package:registration/core/utils/input_validator.dart';
+import 'package:registration/core/utils/string.dart';
 import 'package:registration/core/utils/utils.dart';
 import 'package:registration/models/personal_info.dart';
 import 'package:registration/view_model/provider/register.dart';
@@ -258,9 +259,3 @@ class RegisterButton extends StatelessWidget {
 
 typedef StringCallback = Function(String? params);
 typedef ValidatorCallback = String? Function(String? params);
-
-extension StringExtension on String {
-  String capitalize() {
-    return "${this[0].toUpperCase()}${substring(1).toLowerCase()}";
-  }
-}

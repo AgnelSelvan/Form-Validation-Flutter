@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:registration/core/utils/enum/address_type.dart';
 import 'package:registration/core/utils/enum/input.dart';
 import 'package:registration/core/utils/input_validator.dart';
+import 'package:registration/core/utils/string.dart';
 import 'package:registration/core/utils/utils.dart';
 import 'package:registration/models/province.dart';
 import 'package:registration/res/colors.dart';

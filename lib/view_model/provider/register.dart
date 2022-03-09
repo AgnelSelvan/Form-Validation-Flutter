@@ -61,4 +61,13 @@ class RegisterNotifier extends ChangeNotifier {
     );
     return const Right(true);
   }
+
+  void resetAllData() {
+    _education = null;
+    _addressInfo = null;
+    _addressType = null;
+    _personalInfo = null;
+    _province = null;
+    notifyListeners();
+  }
 }
