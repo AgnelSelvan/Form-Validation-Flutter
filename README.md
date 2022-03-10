@@ -14,12 +14,11 @@ Run this both command in your project folder terminal
    flutter pub run
 ```
 
+## Outputs
 
-## Credits
-
+# Credits
 Found the Inspirational Design on <a href="https://dribbble.com/shots/11583564-Mobile-Sign-Up-Form" target="_blank">Dribble</a> by <a href="https://dribbble.com/kubazelichowski" target="_blank">Kuba Zelichowski</a>
 
-## Outputs
 Android
 
 <img align="left" width=200 src="outputs/android/1.jpeg">
