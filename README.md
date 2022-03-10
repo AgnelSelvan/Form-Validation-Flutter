@@ -29,3 +29,9 @@ iOS
 <img align="right" width=200 src="outputs/ios/2.png">
 <img align="left" width=200 src="outputs/ios/3.png">
 <img align="right" width=200 src="outputs/ios/4.png">
+
+
+## Credits
+
+Found the Inspirational Design on <a href="https://dribbble.com/shots/11583564-Mobile-Sign-Up-Form" target="_blank">Dribble</a> by <a href="https://dribbble.com/kubazelichowski" target="_blank">Kuba Zelichowski</a>
+
