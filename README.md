@@ -16,7 +16,7 @@ Run this both command in your project folder terminal
 
 ## Outputs
 
-# Credits
+##### Credits
 Found the Inspirational Design on <a href="https://dribbble.com/shots/11583564-Mobile-Sign-Up-Form" target="_blank">Dribble</a> by <a href="https://dribbble.com/kubazelichowski" target="_blank">Kuba Zelichowski</a>
 
 Android
